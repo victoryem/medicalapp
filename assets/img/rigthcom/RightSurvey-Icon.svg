@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="28.737" viewBox="0 0 50 28.737">
+  <g id="RightSurvey-Icon" transform="translate(-0.12 -10.27)">
+    <path id="Path_7727" data-name="Path 7727" d="M36.029,39.007H.12V24.361A14.1,14.1,0,0,1,14.211,10.27H36.029A14.1,14.1,0,0,1,50.12,24.361v.555A14.083,14.083,0,0,1,36.029,39.007Z" fill="#47c431"/>
+    <g id="Group_14368" data-name="Group 14368" transform="translate(11.144 21.043)">
+      <g id="Group_14367" data-name="Group 14367" transform="translate(21.912 0)">
+        <path id="Path_7728" data-name="Path 7728" d="M35.181,21.869a2.293,2.293,0,1,1-2.293,2.293,2.292,2.292,0,0,1,2.293-2.293m0-1.309a3.6,3.6,0,1,0,3.6,3.6,3.6,3.6,0,0,0-3.6-3.6Z" transform="translate(-31.58 -20.56)" fill="#fff"/>
+      </g>
+      <circle id="Ellipse_1590" data-name="Ellipse 1590" cx="3.601" cy="3.601" r="3.601" transform="translate(10.951 0)" fill="#fff"/>
+      <circle id="Ellipse_1591" data-name="Ellipse 1591" cx="3.601" cy="3.601" r="3.601" transform="translate(0 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
