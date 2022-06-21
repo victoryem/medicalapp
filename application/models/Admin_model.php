@@ -143,12 +143,12 @@ class Admin_model extends CI_Model {
   }
 
   function get_dep_doctors($dep){
-    $this->db->select('u.nom as nom, u.prenom as prenom, u.id as id');
-     $this->db->from('users u');
-     $this->db->join('medecins m', 'm.user_id  = u.id', 'LEFT');
-     $this->db->where('m.idDep', $dep);
+    $this->db->select('nom, prenom, id');
+     $this->db->from('users');
+     $this->db->where('idDep', $dep);
+     $this->db->where('role', 'medecin');
      $query = $this->db->get();
-     $query = $query->row();  
+     $query = $query->result();  
      return $query;
 }
 

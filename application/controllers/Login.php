@@ -50,8 +50,10 @@ class Login extends CI_Controller
         //die;
         if ($this->session->userdata('role')=='admin') {
           redirect('admin/dashboard');
+        }elseif($this->session->userdata('role')=='medecin') {
+          redirect('medecins/dashboard');
         }else{
-          redirect('admin/users');
+          redirect('secretaires/dashboard');
         }
         
       }

@@ -85,4 +85,51 @@
                 </div>
               </div>
             </div>
-          </div>
+          <hr>
+          <hr>
+          <?php if($this->session->userdata('role')== 'medecin') : ?>
+            <div class="col-lg-6 pe-lg-2">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Enregistrer votre signature.</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <form class="row g-3">
+                    <div class="col-lg-12">
+                      <label class="form-label" for="first-name">Signature</label>
+                      <input class="form-control" id="customFile" type="file" name ="file"/>
+                    </div>
+                    
+
+                    <div class="col-12 d-flex justify-content-end">
+                      <button class="btn btn-primary" type="submit">Enregistrer</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+             
+            </div>
+            <div class="col-lg-6 pe-lg-2">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Enregistrer votre cachet.</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <form class="row g-3">
+                    <div class="col-lg-12">
+                      <label class="form-label" for="last-name">Cachet</label>
+                      <input class="form-control" id="customFile" type="file" name ="file"/> 
+                    </div>
+                    
+
+                    <div class="col-12 d-flex justify-content-end">
+                      <button class="btn btn-primary" type="submit">Enregistrer</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+             
+            </div>
+           
+            <?php endif; ?>
+            </div>

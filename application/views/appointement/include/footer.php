@@ -1,7 +1,7 @@
         <footer class="footer">
             <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
               <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600">L'hopital autrement <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2022 &copy; <a href="#">MedicalApp</a></p>
+                <p class="mb-0 text-600">L'hôpital autrement <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2022 &copy; <a href="#">MedicalApp</a></p>
               </div>
               <div class="col-12 col-sm-auto text-center">
                 <p class="mb-0 text-600">v0.0.1</p>
@@ -29,6 +29,8 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="<?php echo base_url(); ?>vendors/list.js/list.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/flatpickr.js"></script>
+
 
   </body>
 

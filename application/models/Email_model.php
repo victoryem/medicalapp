@@ -143,6 +143,8 @@ class Email_model extends CI_Model {
         $mail->Password = '7be0e6910ebb64';
         $mail->SMTPSecure = 'SSL';;
         $mail->Port     = 2525;
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
         
         $mail->setFrom('toto@gmail.com', 'MecialApp');
         

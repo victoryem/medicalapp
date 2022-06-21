@@ -56,6 +56,155 @@ if (!function_exists('user_role')) {
   }
 }
 
+if (!function_exists('get_mois_str')) {
+  # code...
+
+  function get_mois_str($date){
+
+    $datetime = new \DateTime($date);
+    $mois = $datetime->format('m');
+
+    if ($mois == "01" ) {
+      # code...
+      return 'Jan';
+    }
+    elseif ($mois == "02") {
+      # code...
+      return 'Fév';
+    }
+    elseif ($mois == "03") {
+      # code...
+      return 'Mar';
+    }
+    elseif ($mois == "04") {
+      # code...
+      return 'Avr';
+    }
+    elseif ($mois == "05") {
+      # code...
+      return 'Mai';
+    }
+    elseif ($mois == "06") {
+      # code...
+      return 'Jui';
+    }
+
+    elseif ($mois == "07") {
+      # code...
+      return 'Juil';
+    }
+    elseif ($mois == "08") {
+      # code...
+      return 'Aou';
+    }
+    elseif ($mois == "09") {
+      # code...
+      return 'Sep';
+    }
+
+    elseif ($mois == "10") {
+      # code...
+      return '0ct';
+    }
+    elseif ($mois == "11") {
+      # code...
+      return 'Sep';
+    }
+    elseif ($mois == "12") {
+      # code...
+      return 'Dec';
+    }
+    else{
+      return 'N/A';
+    }
+/*
+    switch ($mois) {
+      case "O1":
+          //return 'Jan';
+        break;
+      case "O2":
+        //return 'Fev';
+        break;
+      case "O3":
+          //return 'Mar';
+        break;
+      case "04":
+          //return 'Avr';
+        break;
+      case "O5":
+          //return 'Mai';
+        break;
+       case "O6":
+          //return 'Jui';
+        var_dump('juin');
+        break;
+      case "O7":
+          //return 'Juil';
+        break;
+      case "08":
+          //return 'Aou';
+        break;
+      case "O9":              
+          //return 'Sep';
+        break;
+      case "10":
+          //return 'Oct';
+        break;
+      case "11":
+          //return 'Nov';
+        break;
+      case "12":
+          //return 'Déc';
+        break;
+      default:
+          //return 'N/A';
+        var_dump('juin1');
+        break;
+    }
+    */
+
+  }
+}
+
+if (!function_exists('get_day')) {
+  # code...
+  function get_day($date){
+    $datetime = new \DateTime($date);
+    $day = $datetime->format('d');
+    return $day;
+  }
+}
+
+if (!function_exists('get_hours')) {
+  # code...
+  function get_hours($date){
+    $datetime = new \DateTime($date);
+    $hours = $datetime->format('h:i');
+    return $hours;
+  }
+
+  if (!function_exists('now')) {
+    # code...
+    function now(){
+      $datetime = new \DateTime('now');
+      $hours = $datetime->format('y-m-d h:i-s');
+      return $hours;
+    }
+  }
+
+  if (!function_exists('get_settings')) {
+    # code...
+    function get_settings(){
+      $ci = get_instance();
+
+      $ci->load->model('general_model');
+      $settings  = $ci->general_model->get_settings();
+      return $settings;
+    }
+  }
+  
+}
+
 // ------------------------------------------------------------------------
 
 /* End of file Custom_helper.php */

@@ -7,15 +7,16 @@
                   <form action="<?php echo base_url(); ?>appointement/next" method="post">
                   <label for="organizerSingle">Choisir le département</label>
                         <select class="form-select js-choice" id="organizerSingle" size="1" name="id" data-options='{"removeItemButton":true,"placeholder":true}'>
-                        <option selected="">Sélectionner</option>
+                        
                         <?php foreach ($departements as $departement): ?>
                             <option value="<?php echo $departement->id; ?>"><?php echo $departement->libDepartement; ?> </option>
                         <?php endforeach ?>
                         </select>
+                        <input type="hidden" name="send" value="send">
                         <hr>
                     <button class="btn btn-primary me-1 mb-1" type="submit">Continuer</button>
                   </form>
-                  <p class="lead">Vous etes à un pas de votre rendez-vous 👨‍⚕️.</p>
+                  <p class="lead">Vous êtes à un pas de votre rendez-vous 👨‍⚕️.</p>
                 </div>
               </div>
             </div>

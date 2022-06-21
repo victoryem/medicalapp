@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.poppins{
+    font-family: 'Poppins', sans-serif;
+  
+}
+
+.log{
+    width: 250px;
+}
+
+.logg{
+    width: 150px;
+}
+
+.tetx{
+    text-align:center;
+}
+
+.dat{
+    float: right;
+}
+
+.sig{
+   text-align: right;
+   margin-right: 50px;
+}
+
+.gras{
+    font-weight: bolder;
+}
+
+.shad{
+     background: #FFFFFF;
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.15);
+
+}

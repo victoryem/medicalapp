@@ -6,7 +6,7 @@ class Register extends CI_Controller {
 
         public function __contruct(){
             parent::__contruct();
-            if($this->session->userdat('id')){
+            if($this->session->userdata('id')){
                 redirect();
         }
 
@@ -18,15 +18,15 @@ class Register extends CI_Controller {
         function validation(){
             //var_dump($_POST);
             //die;
-            echo 'ok 1';
+           
            $this->form_validation->set_rules('nom', 'Nom', 'required' );
            $this->form_validation->set_rules('prenom', 'Prénoms', 'required' );
            $this->form_validation->set_rules('email', 'Email', 'required|valid_email' );
            $this->form_validation->set_rules('role', 'Role', 'required');
-           echo 'ok2';
+           
             
            if($this->form_validation->run()){
-               echo 'ok3';
+              
                $verification_key = md5(rand());
                $data = array(
                     'nom'=> $this->input->post('nom'),
@@ -40,26 +40,36 @@ class Register extends CI_Controller {
                     'verification_key' => $verification_key,
                     'createBy' => $this->input->post('user_id'), 
                );
-               echo 'ok4';
+              
                $id = $this->register_model->insert($data, 'users');
                if($id>0){
-                echo 'ok5';
-                $subject = "Please verify email for login";
-                $message = "
-                <p>Hi ".$this->input->post('user_name')."</p>
-                <p>This is email verification mail from Codeigniter Login Register system. For complete registration process and login into system. First you want to verify you email by click this <a href='".base_url()."register/verify_email/?ver=".$verification_key."&id=".$id."'>link</a>.</p>
-                <p>Once you click this link your email will be verified and you can login into system.</p>
-                <p>Thanks,</p>
-                ";
-
-                echo 'ok6';
-                $send = $this->email_model->send_the_email($this->input->post('email'),$subject, $message);
-
+               
+                $data1['email_to'] = $this->input->post('email');
+                $data1['subject'] = $this->session->userdata('nom'). ' '.$this->session->userdata('prenom').'Vous invite à rejoindre MedicalApp';
+                $data1['id'] = $id;
+                $data1['verification_key'] = $id;
+                $data1['logo'] = base_url('assets/img/logo.png');
+                $data1['info_logo'] = base_url('assets/img/user.png');
+                $data1['owner_email'] = $this->session->userdata('nom');
+                $data1['nom'] = $this->session->userdata('nom');
+                $data1['prenom'] = $this->session->userdata('prenom');
+                $data1['email'] = $this->session->userdata('email');
+                $data1['html_content'] = $this->load->view('email_template/invitation', $data1, true);
+                $send = $this->email_model->send_the_email($data1['email_to'], $data1['subject'], $data1['html_content']);
+                //$subject = "Please verify email for login";
+                //$message = "
+                //<p>Hi ".$this->input->post('user_name')."</p>
+                //<p>This is email verification mail from Codeigniter Login Register system. For complete registration process and login into system. First you want to verify you email by click this <a href='".base_url()."register/verify_email/?ver=".$verification_key."&id=".$id."'>link</a>.</p>
+                //<p>Once you click this link your email will be verified and you can login into system.</p>
+                //<p>Thanks,</p>
+                //";
+                //$send = $this->email_model->send_the_email($this->input->post('email'),$subject, $message);
+                
                 //var_dump($this->email->send());
                 
                 if($send == true)
                 {
-                    echo 'ok7';
+                    
                  $this->session->set_flashdata('message', "Utilisateur ajouté. Un mail d'invitation a été envoyé");
                  redirect('admin/dashboard/');
                 }else{
@@ -79,7 +89,7 @@ class Register extends CI_Controller {
            }
         
         }
-
+        
         function verify_email(){
             //$user_id = $this->uri->segment(5);
             //$verification_key = $this->uri->segment(4);
