@@ -50,6 +50,36 @@ class Ordonnances extends CI_Controller
     $this->load->view('medecins/index', $data);
   }
 
+  public function add_ordonnance_drug(){
+     //print_r($_POST);
+     //print_r($_POST['idmedoc'][1]);
+     
+     if ($_POST) {
+      # code...
+      $data =array(
+        'idPatient'=>$this->input->post('idPatient', true),
+        'idMedecin'=>$this->session->userdata('id')
+      );
+      $data = $this->security->xss_clean($data);
+      $id = $this->general_model->insert($data, 'ordonnances');
+
+      $lenght = sizeof($_POST['idmedoc']);
+
+      for ($i=0; $i <$lenght-1 ; $i++) { 
+        # code...
+        $data1 =array(
+          'idMedi' =>$this->input->post('idmedoc', true)[$i],
+          'idOrdon'=> $id,
+          'qte'=>$this->input->post('qty', true)[$i],
+          'posologie'=> $this->input->post('posologie', true)[$i],
+          'commentaire'=>  $this->input->post('commentaire', true)[$i] 
+        );
+        $this->general_model->insert($data1, 'appartenir');
+      }       
+      echo 'Medicament ajouté avec success';
+     }
+  }
+
 }
 
 

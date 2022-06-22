@@ -45,7 +45,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="<?php echo base_url(); ?>vendors/list.js/list.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    
 
 
   </body>

@@ -11,8 +11,6 @@
   <div class="dropdown-menu border font-base start-0 mt-2 py-0 overflow-hidden w-100">
     <div class="scrollbar list py-3" style="max-height: 24rem;">
       <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2"><a href="">Ajouter un médicament</a></h6>
-
-
       <hr class="bg-200 dark__bg-900" />
       <?php if(!empty($medicaments)): ?>
       <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Liste des médicaments disponibles</h6>
@@ -26,12 +24,11 @@
           </div>
         </div>
       </a>
-    
       <hr class="bg-200 dark__bg-900" />
       <?php endforeach ?>
       <?php else: ?>
                       <div class="text-center">
-                          <p class="fw-bold fs-1 mt-3">Aucune demande non traité.</p>
+                          <p class="fw-bold fs-1 mt-3">Aucune médicament trouvé.</p>
                         </div>
                         </div>
                         </div>
