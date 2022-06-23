@@ -4,7 +4,7 @@
                     <div class="col-lg-4 col-xl-12">
                       <div class="card h-100">
                         <div class="card-header d-flex flex-between-center pb-0">
-                          <h2 class="mb-0">Vos nouvelles demandes</h2>
+                          <h2 class="mb-0">Les demandes terminées</h2>
                         </div>
                         <div class="card-body pt-2">
                           <div class="row g-0 h-100 align-items-center">
@@ -81,8 +81,7 @@
                               <tr>
                                 <th class="sort pe-1 align-middle white-space-nowrap" data-sort="nom">Nom & prenoms</th>
                                 <th class="pe-1 align-middle white-space-nowrap" data-sort="date">Date & Heure</th>
-                                <th class="pe-1 align-middle white-space-nowrap" data-sort="chef">Commentaire</th>
-                                <th class="pe-card align-middle white-space-nowrap text-end">Actions</th>
+                                <th class="pe-1 align-middle white-space-nowrap text-end" data-sort="chef">Commentaire</th>
                               </tr>
                             </thead>
                             <tbody class="list">
@@ -92,14 +91,7 @@
                                   <a class="text-primary fw-semi-bold" href="#!"><?php echo $demande->nom ?> <?php echo $demande->prenom  ?> </a>
                               </td>
                                 <td class="align-middle white-space-nowrap  email"><?php echo $demande->date  ?></td>
-                                <td class="align-middle white-space-nowrap  email"><?php echo $demande->comment  ?></td>
-                                <td class="text-end">
-                                    <div>
-                                        <button class="btn p-0"  type="button"  data-bs-placement="top" title="Confirmer"> <a href="<?php echo base_url(); ?>secretaires/dashboard/confirmer/<?php echo $demande->id ?>"><span class="text-500 far fa-thumbs-up"></span></a></button>
-                                        <button class="btn p-0 ms-2" data-bs-toggle="modal" data-bs-target="#cancel" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Annuler"><span class="text-500 far fa-thumbs-down"></span></button>
-
-                                      </div>
-                                </td>
+                                <td class="align-middle white-space-nowrap text-end email"><?php echo $demande->comment  ?></td>
                               </tr>
                               <?php endforeach ?>
                             </tbody>

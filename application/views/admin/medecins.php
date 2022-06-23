@@ -74,7 +74,6 @@
                                 <td class="align-middle white-space-nowrap since "><?php echo $admin->createDate ?></td>
                                 <td class="text-end">
                                     <div>
-                                        <button class="btn p-0" data-bs-toggle="modal" data-bs-target="#adduser-modal" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier"><span class="text-500 fas fa-edit"></span></button>
                                         <button class="btn p-0 ms-2" type="button"  data-bs-placement="top" title="Voir"><a href="<?php echo base_url(); ?>admin/dashboard/view/<?php echo $admin->id ?>"><span class="text-500 fas fa-eye"></span></a></button>
                                       </div>
                                 </td>
@@ -103,57 +102,7 @@
                     </div>
                   </div> 
               </div>
-              <div class="modal fade" id="adduser-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-    <div class="modal-content position-relative">
-      <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-        <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-0">
-        <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
-          <h4 class="mb-1" id="modalExampleDemoLabel">Modifier <?php echo $admin->nom ?> <?php echo $admin->prenom ?> </h4>
-        </div>
-        <div class="p-4 pb-0">
-        <form class="row g-3" method="post" action="<?php echo base_url(); ?>admin/dashboard/edit_user">
-                    <div class="col-lg-6">
-                      <label class="form-label" for="first-name">Nom</label>
-                      <input class="form-control" id="first-name" type="text" value="<?php echo $admin->nom; ?>" name="nom" />
-                    </div>
-                    <div class="col-lg-6">
-                      <label class="form-label" for="last-name">Prénoms</label>
-                      <input class="form-control" id="last-name" type="text"   value="<?php echo $admin->prenom;  ?>"  name ="prenom" />
-                    </div>
-                    <div class="col-lg-6">
-                      <label class="form-label" for="email1">Email</label>
-                      <input class="form-control" id="email1" type="email" value="<?php echo $admin->email;  ?>" name = "email" />
-                    </div>
-                    <div class="col-lg-6">
-                      <label class="form-label" for="email2">Téléphone</label>
-                      <input class="form-control" id="email2" type="text" value="<?php echo $admin->phone;  ?>" name="phone"/>
-                    </div>
-                    <div class="col-lg-12">
-                      <label class="form-label" for="email2">Adresse</label>
-                      <input class="form-control" id="email2" type="text" value="<?php echo $admin->adresse;  ?>" name="adresse"/>
-                    </div>
-                    <input type="hidden" name="id" value ="<?php echo $admin->id; ?>">
-                    <div class="col-lg-6">
-                        <button class="btn btn-primary" type="submit" >Mettre à jour </button>
-                    </div>
-                  </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-      <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Fermer</button>
-        <?php if($admin->statut == 1 && $admin->archive == 'yes'): ?>
-            <button class="btn btn-danger me-1 mb-1" type="button"><a href="<?php echo base_url(); ?>admin/dashboard/unarchive/<?php echo $admin->id;  ?>" style = "color:white">Desarchiver cet utilisateur</a> </button>
-         <?php endif; ?>
-         <?php if($admin->statut == 1 && $admin->archive == 'no'): ?>
-            <button class="btn btn-danger me-1 mb-1" type="button"><a href="<?php echo base_url(); ?>admin/dashboard/archiver/<?php echo $admin->id;  ?>" style = "color:white">Archiver cet utilisateur</a> </button>
-         <?php endif; ?>
-      </div>
-    </div>
-  </div>
-</div>
+             
                     <?php else: ?>
                       <div class="text-center ">
                           <p class="fw-bold fs-1 mt-3">Aucun medécin trouvé.</p>

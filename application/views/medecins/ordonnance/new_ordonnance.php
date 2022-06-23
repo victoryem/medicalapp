@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body z-index-1">
                   <div class="row g-2 h-100 align-items-end">
-
+            
                   </div>
                 </div>
               </div>
@@ -19,10 +19,5 @@
         </div>
 
       <hr>
-    
-
-
-      <?php include 'includes/drugs_search.php';?>
-
       <hr>
       <?php include 'includes/add_drugs.php';?>

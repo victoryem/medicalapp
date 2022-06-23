@@ -35,7 +35,7 @@ class Admin_model extends CI_Model {
   }
 
   public function get_all_users(){
-        $this->db->select('id, nom, prenom, email, phone, adresse, role,statut');
+        $this->db->select('id, nom, prenom, email, phone, adresse, role,statut, archive');
         $this->db->from('users');
         $this->db->order_by('id','DESC');
         $query = $this->db->get();
@@ -52,6 +52,16 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         $query = $query->row();
         return $query; 
+  }
+
+  public function count($role){
+
+    $this->db->select();
+    $this->db->where('role', $role);
+    $this->db->from('users');
+    $query = $this->db->get();
+    return $query->num_rows(); 
+
   }
 
 

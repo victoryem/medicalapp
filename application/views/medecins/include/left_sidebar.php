@@ -101,7 +101,7 @@
             <div class="navbar-vertical-content scrollbar">
               <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
                 <li class="nav-item">
-                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>medecins/" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard">
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>medecins/dashboard" role="button"  aria-expanded="false" aria-controls="dashboard">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Tableau de bord</span>
                     </div>
                   </a>
@@ -119,16 +119,12 @@
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-alt"></span></span><span class="nav-link-text ps-1">Non confirmer</span>
                     </div>
                   </a>
-                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>admin/dashboard/admins" role="button" data-bs-toggle="" aria-expanded="false">
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>medecins/dashboard/avenir" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-comments"></span></span><span class="nav-link-text ps-1">A venir</span>
                     </div>
                   </a>
-                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>admin/dashboard/doctors" role="button" data-bs-toggle="" aria-expanded="false">
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>medecins/dashboard/end" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-comments"></span></span><span class="nav-link-text ps-1">Terminer</span>
-                    </div>
-                  </a>
-                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>admin/dashboard/secretaires" role="button" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-comments"></span></span><span class="nav-link-text ps-1">Ajouter</span>
                     </div>
                   </a>
                 </li>
@@ -173,7 +169,7 @@
                       <hr class="mb-0 navbar-vertical-divider" />
                     </div>
                   </div>
-                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>medecins/dashboard/pharma" role="button" data-bs-toggle="" aria-expanded="false" aria-controls="forms">
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>medecins/dashboard/disponibilites" role="button" data-bs-toggle="" aria-expanded="false" aria-controls="forms">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-file-alt"></span></span><span class="nav-link-text ps-1">Gérer ma Disponibilité</span>
                     </div>
                   </a>

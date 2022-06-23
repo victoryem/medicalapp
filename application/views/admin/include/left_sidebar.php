@@ -99,7 +99,7 @@
             <div class="navbar-vertical-content scrollbar">
               <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
                 <li class="nav-item">
-                  <!-- parent pages--><a class="nav-link" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard">
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>admin/dashboard/" role="button" data-bs-toggle="" aria-expanded="false" >
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Tableau de bord</span>
                     </div>
                   </a>
@@ -136,36 +136,17 @@
                 <li class="nav-item">
                   <!-- label-->
                   <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-                    <div class="col-auto navbar-vertical-label">Logs
+                    <div class="col-auto navbar-vertical-label">Configuration
                     </div>
                     <div class="col ps-0">
                       <hr class="mb-0 navbar-vertical-divider" />
                     </div>
                   </div>
-                  <!-- parent pages--><a class="nav-link" href="licences.html" role="button" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-flag"></span></span><span class="nav-link-text ps-1">Voir toute les activitées</span>
-                    </div>
-                  </a>
-
-                  <!-- parent pages--><a class="nav-link" href="licences.html" role="button" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-flag"></span></span><span class="nav-link-text ps-1">Voir l'activité d'un Utilisateurs</span>
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>admin/dashboard/config"role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-flag"></span></span><span class="nav-link-text ps-1">Configurer le cabinet</span>
                     </div>
                   </a>
                 </li>
-
-                <li class="nav-item">
-                  <!-- label-->
-                  <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-                    <div class="col-auto navbar-vertical-label">Notifications
-                    </div>
-                    <div class="col ps-0">
-                      <hr class="mb-0 navbar-vertical-divider" />
-                    </div>
-                  </div>
-                  <!-- parent pages--><a class="nav-link" href="" role="button" data-bs-toggle="" aria-expanded="false" aria-controls="forms">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-file-alt"></span></span><span class="nav-link-text ps-1">Mes Notifications</span>
-                    </div>
-                  </a>
 
                   <li class="nav-item">
                   <!-- label-->

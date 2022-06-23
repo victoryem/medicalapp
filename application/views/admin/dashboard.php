@@ -13,8 +13,8 @@
                 <!--/.bg-holder-->
 
                 <div class="card-body position-relative">
-                  <h6>Clients<span class="badge badge-soft-success rounded-pill ms-2">10</span></h6>
-                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning">Admins</div><a class="fw-semi-bold fs--1 text-nowrap" href="app/e-commerce/customers.html">Voir +<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                  <h6>Nb:<span class="badge badge-soft-success rounded-pill ms-2"><?php echo $nb_admin ?></span></h6>
+                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning">Admins</div><a class="fw-semi-bold fs--1 text-nowrap" href="<?php echo base_url(); ?>admin/dashboard/admins">Voir +<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
                 </div>
               </div>
             </div>
@@ -25,8 +25,8 @@
                 <!--/.bg-holder-->
 
                 <div class="card-body position-relative">
-                  <h6>Clients<span class="badge badge-soft-success rounded-pill ms-2">100</span></h6>
-                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" >Médecins</div><a class="fw-semi-bold fs--1 text-nowrap" href="app/e-commerce/orders/order-list.html">Voir +<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                  <h6>Nb:<span class="badge badge-soft-success rounded-pill ms-2"><?php echo $nb_doc ?></span></h6>
+                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" >Médecins</div><a class="fw-semi-bold fs--1 text-nowrap" href="<?php echo base_url(); ?>admin/dashboard/doctors">Voir +<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
                 </div>
               </div>
             </div>
@@ -37,8 +37,8 @@
                 <!--/.bg-holder-->
 
                 <div class="card-body position-relative">
-                  <h6>Client<span class="badge badge-soft-success rounded-pill ms-2">900</span></h6>
-                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif">Secrétaires</div><a class="fw-semi-bold fs--1 text-nowrap" href="index.html">Voir +<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                  <h6>Nb:<span class="badge badge-soft-success rounded-pill ms-2"><?php echo $nb_sec ?></span></h6>
+                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif">Secrétaires</div><a class="fw-semi-bold fs--1 text-nowrap" href="<?php echo base_url(); ?>admin/dashboard/secretaires">Voir +<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
                 </div>
               </div>
             </div>
@@ -63,40 +63,39 @@
                       <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Nom</th>
                       <th class="sort pe-1 align-middle white-space-nowrap" data-sort="email">Email</th>
                       <th class="sort pe-1 align-middle white-space-nowrap" data-sort="phone">Téléphone</th>
-                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="pays">Pays</th>
-                      <th class="sort pe-1 align-middle white-space-nowrap ps-5" data-sort="address" style="min-width: 200px;">Application</th>
-                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="joined">Depuis</th>
-                      <th class="align-middle no-sort"></th>
+                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="role">Rôle</th>
+                      <th class="sort pe-1 align-middle white-space-nowrap ps-5" data-sort="address" style="min-width: 200px;">Adresse</th>
+                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="statut">Statut</th>
                     </tr>
                   </thead>
                   <tbody class="list" id="table-customers-body">
+                  <?php foreach($users as $user) : ?>
                     <tr class="btn-reveal-trigger">
-                      
                       <td class="name align-middle white-space-nowrap py-2">
                           <div class="d-flex d-flex align-items-center">
                             <div class="flex-1">
-                              <h5 class="mb-0 fs--1">Ricky Antony</h5>
+                              <h5 class="mb-0 fs--1"><?php echo $user->nom ?> <?php echo $user->prenom ?></h5>
                             </div>
                           </div>
                         </a></td>
-                      <td class="email align-middle py-2"><a href="mailto:ricky@example.com">ricky@example.com</a></td>
-                      <td class="phone align-middle white-space-nowrap py-2"><a href="tel:2012001851">(201) 200-1851</a></td>
-                      <td class="pays align-middle white-space-nowrap py-2">Benin</td>
-                      <td class="address align-middle white-space-nowrap ps-5 py-2">
-                          <span class="badge badge rounded-pill badge-soft-success" data-bs-toggle="tooltip" data-bs-placement="top" title="RightQ"><img src="assets/img/rigthcom/rightQ-logo-1.png" alt="" width="70px" ></span>
-                          <span class="badge badge rounded-pill badge-soft-secondary"><img src="assets/img/rigthcom/RightPlayer-Icon.svg" width="25px" alt=""></span>
-                          <span class="badge badge rounded-pill badge-soft-warning"><img src="assets/img/rigthcom/RightSurvey-Icon.svg" alt="" width="25px"></span>
-                        </td>
-                      <td class="joined align-middle py-2">30/03/2018</td>
-                      <td class="align-middle white-space-nowrap py-2 text-end">
-                        <div class="dropdown font-sans-serif position-static">
-                          <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal" type="button" id="customer-dropdown-0" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--1"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="customer-dropdown-0">
-                            <div class="bg-white py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
-                          </div>
-                        </div>
+                      <td class="email align-middle py-2"><a href="mailto:<?php echo $user->email ?>"><?php echo $user->email ?></a></td>
+                      <td class="phone align-middle white-space-nowrap py-2"><a href=""><?php echo $user->phone ?></a></td>
+                      <td class="pays align-middle white-space-nowrap py-2"><?php echo $user->role ?></td>
+                      <td class="address align-middle white-space-nowrap ps-5 py-2"><?php echo $user->adresse ?></td>
+                      <td class="joined align-middle py-2">
+                                  <?php if($user->statut == 0): ?>
+                                    <span class="badge bg-dark dark__bg-dark">Inactif</span>
+                                  <?php endif; ?>
+                                  <?php if($user->statut == 1 && $user->archive == 'no'): ?>
+                                    <span class="badge bg-success">Actif</span>
+                                  <?php endif; ?>
+                                  <?php if($user->statut == 1 && $user->archive == 'yes'): ?>
+                                    <span class="badge bg-warning">Archiver</span>
+                                  <?php endif; ?>
                       </td>
+                      
                     </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>

@@ -166,6 +166,7 @@ if (!function_exists('get_mois_str')) {
   }
 }
 
+
 if (!function_exists('get_day')) {
   # code...
   function get_day($date){
@@ -192,14 +193,44 @@ if (!function_exists('get_hours')) {
     }
   }
 
+  if (!function_exists('today')) {
+    # code...
+    function today(){
+      $datetime = new \DateTime('now');
+      $date = $datetime->format('Y-m-d');
+      return $date;
+    }
+  }
+
   if (!function_exists('get_settings')) {
     # code...
     function get_settings(){
       $ci = get_instance();
-
       $ci->load->model('general_model');
       $settings  = $ci->general_model->get_settings();
       return $settings;
+    }
+  }
+
+  if (!function_exists('check_available')) {
+    # code...
+    function check_available($doc,$date){
+      $ci = get_instance();
+      $ci->load->model('general_model');
+      $availables = $ci->general_model->get_doc_dispo($doc);
+     // echo $date;
+      //var_dump($availables);
+      foreach ($availables as $availabe) {
+        # code...
+        if ($date == $availabe->date) {
+          echo   ' trouvé';
+        }
+        else {
+          # code...
+          echo   ' non trouvé';
+        }
+        
+      }
     }
   }
   

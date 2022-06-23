@@ -32,7 +32,12 @@ class Dashboard extends CI_Controller
   public function index()
   {
     // 
+    $users = $this->admin_model->get_all_users();
     $data = array();
+    $data['users'] = $users;
+    $data['nb_doc'] = $this->admin_model->count('medecin');
+    $data['nb_sec'] = $this->admin_model->count('secretaire');
+    $data['nb_admin'] = $this->admin_model->count('admin');
     $data['page_title'] = 'Tableau de bord';
     $data['main_content'] = $this->load->view('admin/dashboard', $data, TRUE);
     $this->load->view('admin/index', $data);
@@ -113,12 +118,12 @@ class Dashboard extends CI_Controller
 
   public function archiver($id){
     if ($this->admin_model->archiver($id)){
-      $this->session->set_flashdata('sucesse', 'Utilisateur archiver avec success');
-      return('admin/dashboard/admins');
+      $this->session->set_flashdata('sucess', 'Utilisateur archiver avec success');
+      redirect('admin/dashboard/');
     }
     else{
       $this->session->set_flashdata('error', 'Erreur, merci de réesayer');
-      return('admin/dashboard/admins');
+      redirect('admin/dashboard/');
     }
     
 
@@ -126,12 +131,12 @@ class Dashboard extends CI_Controller
 
   public function unarchive($id){
     if ($this->admin_model->unarchive($id)){
-      $this->session->set_flashdata('sucesse', 'Utilisateur desarchiver avec success');
-      return('admin/dashboard/admins');
+      $this->session->set_flashdata('sucess', 'Utilisateur desarchiver avec success');
+      redirect('admin/dashboard/');
     }
     else{
       $this->session->set_flashdata('error', 'Erreur, merci de réesayer');
-      return('admin/dashboard/admins');
+      redirect('admin/dashboard/');
     }
     
   }
@@ -147,22 +152,21 @@ class Dashboard extends CI_Controller
           'prenom' => $this->input->post('prenom', true),
           'email' => $this->input->post('email', true),
           'phone' => $this->input->post('phone', true),
-          'adresse' => $this->input->post('adresse', true)
+          'adresse' => $this->input->post('adresse', true),
+          'idDep' => $this->input->post('idDep', true),
 
       );
-      
+
 
       if ($this->admin_model->edit($id,$data) == true) {
-        echo 'ok oh ';
-        die;
-        $this->session->set_flashdata('sucesse', 'Information mis à jour avec success');
-        return('admin/dashboard/admins');
+        
+        $this->session->set_flashdata('sucess', 'Information mis à jour avec success');
+        redirect('admin/dashboard/');
       }
       else{
-        echo 'not ok oh';
-        die;
+        
         $this->session->set_flashdata('error', 'Erreur, merci de réessayer');
-        return('admin/dashboard/admins');
+        redirect('admin/dashboard/');
       }
     }
   }
@@ -170,8 +174,10 @@ class Dashboard extends CI_Controller
 
   public function view($id){
     $user = $this->admin_model->get_user($id);
+    $deps = $this->admin_model->get_all_dep();
     $data = array();
     $data['user'] = $user;
+    $data['deps'] = $deps;
     $data['page_title'] = $user->nom .' '. $user->prenom ;
     $data['main_content'] =  $this->load->view('admin/view', $data, TRUE);
     $this->load->view('admin/index', $data);
@@ -196,6 +202,78 @@ class Dashboard extends CI_Controller
     $data['page_title'] ='Gestion des Médecins';
     $data['main_content'] = $this->load->view('admin/secretaires', $data, TRUE);
     $this->load->view('admin/index', $data);
+  }
+
+  public function config(){
+    $data = array();
+    $setting=get_settings();
+    $data['setting'] = $setting;
+    $data['page_title'] ='Configurer votre cabinet';
+    $data['main_content'] = $this->load->view('admin/config', $data, TRUE);
+    $this->load->view('admin/index', $data);
+  }
+
+  public function add_config(){
+    if ($_POST) {
+      $return = $this->general_model->do_upload_img();
+      if ($return !==NULL) {
+        # code...
+        $data = array(
+          'nom'=> $this->input->post('nom', true),
+          'description'=> $this->input->post('description', true),
+          'adresse'=> $this->input->post('adresse', true),
+          'teleĥone1'=> $this->input->post('teleĥone1', true),
+          'telephone2'=> $this->input->post('telephone2', true),
+          'pays'=> $this->input->post('pays', true),
+          'ville'=> $this->input->post('ville', true),
+          'logo'=>$return['upload_data']['orig_name']
+        );
+       
+        $result = $this->admin_model-> insert($data, 'settings');
+        if ($result !=NULL) {
+          # code...
+          $this->session->set_flashdata('sucess', "Disponibilité ajouté");
+          redirect('admins/dashboard/config');
+         }
+         else {
+          $this->session->set_flashdata('error', "Une erreur est subvenue. Merci d'essayer à nouveau");
+          redirect('admins/dashboard/config');
+         }
+      }
+     
+    }
+  }
+
+  public function edit_config(){
+    if ($_POST) {
+      $return = $this->general_model->do_upload_img();
+      if ($return !==NULL) {
+        # code...
+        $data = array(
+          'nom'=> $this->input->post('nom', true),
+          'description'=> $this->input->post('description', true),
+          'adresse'=> $this->input->post('adresse', true),
+          'teleĥone1'=> $this->input->post('teleĥone1', true),
+          'telephone2'=> $this->input->post('telephone2', true),
+          'pays'=> $this->input->post('pays', true),
+          'ville'=> $this->input->post('ville', true),
+          'logo'=>"uploads/images/".$return['upload_data']['orig_name']
+        );
+       
+        $result = $this->general_model-> edit_option($data,1,'settings');
+        if ($result !=NULL) {
+          # code...
+          $this->session->set_flashdata('sucess', "Mise à jour effectuée");
+          redirect('admins/dashboard/config');
+         }
+         else {
+          $this->session->set_flashdata('error', "Une erreur est subvenue. Merci d'essayer à nouveau");
+          redirect('admins/dashboard/config');
+         }
+      }
+     
+    }
+
   }
 }
 

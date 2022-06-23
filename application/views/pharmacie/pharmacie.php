@@ -299,10 +299,6 @@
                       </div>
                     </div>
                 </div>
-                
-                 
-                                
-
                     <?php else: ?>
                       <div class="text-center ">
                           <p class="fw-bold fs-1 mt-3">Aucune forme de médicaments dans votre Pharmacie.</p>

@@ -65,7 +65,7 @@ class Ordonnances extends CI_Controller
 
       $lenght = sizeof($_POST['idmedoc']);
 
-      for ($i=0; $i <$lenght-1 ; $i++) { 
+      for ($i=0; $i <$lenght ; $i++) { 
         # code...
         $data1 =array(
           'idMedi' =>$this->input->post('idmedoc', true)[$i],
@@ -76,8 +76,37 @@ class Ordonnances extends CI_Controller
         );
         $this->general_model->insert($data1, 'appartenir');
       }       
-      echo 'Medicament ajouté avec success';
+      echo 'Ordonnance ajoutée avec succès';
      }
+  }
+
+  function view_ordonnance($id){
+    $patient = $this->medecin_model->get_ordonnance_patient($id);
+    $medicaments = $this->medecin_model->get_ordonnance_medoc($id);
+  
+    $data = array();
+    $data['settings'] = get_settings();
+    $data['patient'] = $patient;
+    $data['medicaments'] = $medicaments;
+    $data['page_title'] = 'Ordonnance.';
+    $data['main_content'] = $this->load->view('medecins/ordonnance/view_ordonnance', $data, TRUE);
+    $this->load->view('medecins/index', $data);
+  }
+
+  function get_ordonnance_pfd($id){
+    $patient = $this->medecin_model->get_ordonnance_patient($id);
+    $medicaments = $this->medecin_model->get_ordonnance_medoc($id);
+  
+    $data = array();
+    $data['settings'] = get_settings();
+    $data['patient'] = $patient;
+    $data['medicaments'] = $medicaments;
+    $data['page_title'] = 'Ordonnance.';
+    $live_mpdf = new \Mpdf\Mpdf();
+    $all_html = $this->load->view('medecins/ordonnance/pdf_ordonnance',$data, true); //CodeIgniter view file name
+    $live_mpdf->WriteHTML($all_html);
+    $live_mpdf->Output(); // simple run and opens in browser
+    $live_mpdf->Output('pakainfo_details.pdf','D'); // it CodeIgniter downloads the file into the main dynamic system, with give your file name
   }
 
 }

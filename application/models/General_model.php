@@ -163,6 +163,52 @@ class General_model extends CI_Model{
         $query = $query->row();  
         return $query;
     }
+
+    function get_doc_dispo($id){
+        $this->db->select('d.date as date, i.heureDebut as heureDebut, i.heureFin as heureFin, d.id as id');
+        $this->db->from('dates d');
+        $this->db->join('disponibilites i', 'i.idDate  = d.id');
+        $this->db->where('i.idMedecin', $id);
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+    }
+    
+    function check_date($date, $id){
+        $this->db->select('d.date as date');
+        $this->db->from('dates d');
+        $this->db->join('disponibilites i', 'i.idDate  = d.id');
+        $this->db->where('i.idMedecin', $id);
+        $this->db->where('date', $date);
+        $query = $this->db->get();
+        if ($query->num_rows()>0) {
+            # code...
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+    function return_date($date, $id){
+        $this->db->select('d.date as date, i.heureDebut as heureDebut, i.heureFin as heureFin');
+        $this->db->from('dates d');
+        $this->db->join('disponibilites i', 'i.idDate  = d.id');
+        $this->db->where('i.idMedecin', $id);
+        $this->db->where('date', $date);
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+
+    }
+
+    function get_doc_app_date($id){
+        $this->db->select('date');
+        $this->db->from('appointements');
+        $this->db->where('idMedecin', $id);
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+    }
 }
 
 

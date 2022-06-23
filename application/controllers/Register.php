@@ -102,7 +102,7 @@ class Register extends CI_Controller {
             $data['nom']= $user->nom;
             $data['prenom'] = $user->prenom;
             $data['email'] = $user->email;
-            $this->load->view('confirm_registration', $data);
+            $this->load->view('complete_registration', $data);
 
             /*
             if($verification_key != NULL){
@@ -126,7 +126,7 @@ class Register extends CI_Controller {
 
         function next(){
             $user_id = $this->input->get('user_id');
-            $this->load->view('confirm_registration', $user_id);
+            $this->load->view('complete_registration', $user_id);
         }
 
         function complet_registration(){

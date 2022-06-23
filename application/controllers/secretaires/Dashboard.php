@@ -294,7 +294,7 @@ class Dashboard extends CI_Controller
     $data = array();
   
     $data['demandes'] = $demandes;
-    $data['page_title'] = 'Vos demandes en attente';
+    $data['page_title'] = 'Vos demandes terminées';
     $data['main_content'] = $this->load->view('secretaires/end', $data, TRUE);
     $this->load->view('secretaires/index', $data);
 

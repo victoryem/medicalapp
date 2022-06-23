@@ -32,7 +32,10 @@ class Dashboard extends CI_Controller
   public function index()
   {
     // 
+    $demande = $this->medecin_model->get_today_rdv();
+
     $data = array();
+    $data['demandes'] = $demande;
     $data['page_title'] = 'Tableau de bord';
     $data['main_content'] = $this->load->view('medecins/dashboard', $data, TRUE);
     $this->load->view('medecins/index', $data);
@@ -120,7 +123,7 @@ class Dashboard extends CI_Controller
     $data =array();
     $user = $this->admin_model->user($this->session->userdata('id'));
     $data['user']  = $user;
-    $data['page_tile'] = 'Détail de votre compte';
+    $data['page_title'] = 'Détail de votre compte';
     $data['main_content'] =  $this->load->view('medecins/myaccount', $data, TRUE);
     $this->load->view('medecins/index', $data);
   }
@@ -198,8 +201,65 @@ class Dashboard extends CI_Controller
       //var_dump($data);
       }
 }
+  public function disponibilites(){
+    $dispos = $this->medecin_model->get_all_dispos();
+    $data =array();
+    $data['dispos']  = $dispos;
+    $data['page_title'] = 'Gérer votre disponibilité';
+    $data['main_content'] =  $this->load->view('medecins/availables', $data, TRUE);
+    $this->load->view('medecins/index', $data);
+
+  }
+
+  function add_dispo(){
+  
+
+    if ($_POST) {
+      # code...
+      $data =array(
+          "date"=> $this->input->post('date', true)
+      );
+      $id = $this->general_model->insert($data, 'dates');
+
+      $data1 =array(
+          "heureDebut" => $this->input->post('heureDebut', true),
+          "heureFin" => $this->input->post('heureFin', true),
+          "idDate" =>$id,
+          "idMedecin"=>$this->session->userdata('id')
+      );
+     $res= $this->general_model->insert($data1, 'disponibilites');
+     if ($res !=NULL) {
+      # code...
+      $this->session->set_flashdata('sucess', "Disponibilité ajouté");
+      redirect('medecins/dashboard/disponibilites');
+     }
+     else {
+      $this->session->set_flashdata('error', "Une erreur est subvenue. Merci d'essayer à nouveau");
+      redirect('medecins/dashboard/disponibilites');
+     }
+    }
+
+  }
 
 
+function avenir(){
+    $demandes = $this->medecin_model->get_confirmer();
+    $data = array();
+    $data['demandes'] = $demandes;
+    $data['page_title'] = 'Vos demandes en attente';
+    $data['main_content'] = $this->load->view('secretaires/avenir', $data, TRUE);
+    $this->load->view('medecins/index', $data);
+}
+
+function end(){
+  $demandes = $this->medecin_model->get_end();
+  $data = array();
+
+  $data['demandes'] = $demandes;
+  $data['page_title'] = 'Vos demandes terminées';
+  $data['main_content'] = $this->load->view('secretaires/end', $data, TRUE);
+  $this->load->view('medecins/index', $data);
+}
 
 }
 

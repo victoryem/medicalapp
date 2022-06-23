@@ -46,15 +46,19 @@
                       <div class="mb-3">
                           <label class="form-label" for="form-wizard-gender">Docteur</label>
                           <select class="form-select" name="docs" id="form-wizard-gender"required="required">
-                            <option value="2">Selectionner votre médécin ...</option>
+                            <option value="">Selectionner votre médécin ...</option>
                             <?php foreach ($docs as $doc): ?>
                                 <option value="<?php echo $doc->id; ?>"><?php echo $doc->nom; ?> <?php echo $doc->prenom; ?></option>
                             <?php endforeach ?>
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label class="form-label" for="">Date & Heure</label>
-                          <input class="form-control datetimepicker" id="datetimepicker" type="text" placeholder="d/m/y H:i" data-options='{"enableTime":true,"dateFormat":"d/m/y H:i","disableMobile":true}' name="date" required="required"/>
+                          <label class="form-label" for="">Date</label>
+                          <input class="form-control" name="date" type="date" placeholder="d/m/y" required />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="">Heure</label>
+                          <input class="form-control" name="heure" type="time" placeholder="H:i"  required/>
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="form-wizard-wizard-name">Adresse*</label>

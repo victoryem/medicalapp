@@ -53,7 +53,7 @@ class Login extends CI_Controller
         }elseif($this->session->userdata('role')=='medecin') {
           redirect('medecins/dashboard');
         }else{
-          redirect('secretaires/dashboard');
+          redirect('secretaires/dashboard/demandes');
         }
         
       }
