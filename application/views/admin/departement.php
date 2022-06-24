@@ -103,10 +103,10 @@
           <h4 class="mb-1" id="modalExampleDemoLabel">Modifier <?php echo $departement->nomdep ?> </h4>
         </div>
         <div class="p-4 pb-0">
-        <form action ="<?php echo base_url(); ?>admin/departement/add_dep" method="post">
+        <form action ="<?php echo base_url(); ?>admin/departement/edit_dep" method="post">
             <div class="mb-3">
               <label class="col-form-label" for="recipient-name">Nom du département</label>
-              <input class="form-control" id="recipient-name" type="text" name ="libDepartement" value ="<?php echo $departement->nomdep ?>"/>
+              <input class="form-control" id="recipient-name" type="text" name ="libDepartement" value ="<?php echo $departement->nomdep ?> " diseable/>
             </div>
             <div class="mb-3">
               <label class="col-form-label" for="message-text">Médecin Spécialiste:</label>
@@ -116,7 +116,7 @@
                 <option value="<?php echo $doc->id; ?>"><?php echo $doc->nom; ?> <?php echo $doc->prenom; ?></option>
                 <?php endforeach ?>
              </select>
-             <input type="hidden" name="id" value="">
+             <input type="hidden" name="id" value="<?php echo $departement->idDep  ?>">
             </div>
             <button class="btn btn-primary" type="submit">Modifier </button>
           </form>
@@ -125,7 +125,7 @@
       <div class="modal-footer">
       <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Fermer</button>
         
-            <button class="btn btn-danger me-1 mb-1" type="button"><a href="<?php echo base_url(); ?>departement/dashboard/unarchive/<?php echo $departement->idDep;  ?>" style = "color:white">Supprimer</a> </button>
+            <button class="btn btn-danger me-1 mb-1" type="button"><a href="<?php echo base_url(); ?>admin/departement/del_dep/<?php echo $departement->idDep;  ?>" style = "color:white">Supprimer</a> </button>
          
       </div>
     </div>

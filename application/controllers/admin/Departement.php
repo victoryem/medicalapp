@@ -48,10 +48,14 @@ class Departement extends CI_Controller
         'libDepartement'=> $this->input->post('libDepartement', true),
         'chefDepartement'=> $this->input->post('chefDepartement', true)
       );
+    
 
       $result = $this->admin_model-> insert($data, 'departements');
       if(!empty($result)){
-
+        $data2=array(
+          'idDep'=> $result
+      );
+        $result = $this->general_model->edit_option($data2,$this->input->post('chefDepartement', true),'users');
         redirect('admin/departement');
       }else{
         echo'something went wrong';
@@ -62,6 +66,20 @@ class Departement extends CI_Controller
  function del_dep($id){
     $result = $this->admin_model-> del($id, 'departements');
     if($result =='ok'){
+      redirect('admin/departement');
+    }
+  }
+
+
+  function edit_dep(){
+
+    $data= array(
+      'chefDepartement'=> $this->input->post('chefDepartement', true)
+    );
+    $id =$this->input->post('id', true);
+    $result = $this->general_model->edit_option($data,$id,'departements');
+    if ($result=='ok') {
+      # code...
       redirect('admin/departement');
     }
   }

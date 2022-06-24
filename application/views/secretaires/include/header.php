@@ -29,7 +29,7 @@
                       </div>
                     </div>
 
-                    <div class="card-footer text-center border-top"><a class="card-link d-block" href="app/social/notifications.html">Tout voir</a></div>
+                    <div class="card-footer text-center border-top"><a class="card-link d-block" href="#">Tout voir</a></div>
                   </div>
                 </div>
 

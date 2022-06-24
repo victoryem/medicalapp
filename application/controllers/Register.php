@@ -102,7 +102,7 @@ class Register extends CI_Controller {
             $data1=array(
                 'is_email_verified' =>'yes'
             );
-            $this->general_model->edit_option($data,$user_id,'users');
+            $this->general_model->edit_option($data1,$user_id,'users');
             $data ['id'] = $user_id;
             $data['nom']= $user->nom;
             $data['prenom'] = $user->prenom;

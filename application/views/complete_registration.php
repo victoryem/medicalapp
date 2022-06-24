@@ -91,10 +91,7 @@
                             <input type="text" name="prenom" class="form-control" disabled value="<?php echo $prenom; ?>" />
                             <span class="text-danger"><?php echo form_error('prenom'); ?></span>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="form-wizard-wizard-email">Email*</label>
-                          <input class="form-control" type="email" name="email" placeholder="jesuis@malade.com" pattern="^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$" required="required" id="form-wizard-wizard-email" data-wizard-validate-email="true" />
-                        </div>
+                        
                         <div class="row g-2">
                           <div class="col-12">
                             <div class="mb-3">
