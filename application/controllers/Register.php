@@ -96,8 +96,13 @@ class Register extends CI_Controller {
             $user_id = $_GET ['id'];
             $verification_key = $_GET['ver'];
             $user = $this->general_model->get_user($user_id);
+
            //var_dump($user->nom);
             //die;
+            $data1=array(
+                'is_email_verified' =>'yes'
+            );
+            $this->general_model->edit_option($data,$user_id,'users');
             $data ['id'] = $user_id;
             $data['nom']= $user->nom;
             $data['prenom'] = $user->prenom;

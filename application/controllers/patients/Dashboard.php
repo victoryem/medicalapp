@@ -36,7 +36,7 @@ class Dashboard extends CI_Controller
     $appointements = $this->patient_model->get_all_appoitement($this->session->userdata('id'));
     $documents =  $this->patient_model->get_all_document($this->session->userdata('id'));
     $ordonnances = $this->patient_model->get_all_ordonnance($this->session->userdata('id'));
-   
+ 
 
     $data = array();
     $data['consultations'] = $appointements;
@@ -47,7 +47,18 @@ class Dashboard extends CI_Controller
     $this->load->view('patients/index', $data);
 
   }
-
+  function view_ordonnance($id){
+    $patient = $this->medecin_model->get_ordonnance_patient($id);
+    $medicaments = $this->medecin_model->get_ordonnance_medoc($id);
+  
+    $data = array();
+    $data['settings'] = get_settings();
+    $data['patient'] = $patient;
+    $data['medicaments'] = $medicaments;
+    $data['page_title'] = 'Ordonnance.';
+    $data['main_content'] = $this->load->view('patients/view_ordonnance', $data, TRUE);
+    $this->load->view('patients/index', $data);
+  }
 }
 
 

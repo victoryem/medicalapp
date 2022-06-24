@@ -45,6 +45,8 @@
     <link href="<?php echo base_url(); ?>assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="<?php echo base_url(); ?>assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="<?php echo base_url(); ?>assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
+
     <script>
       var isRTL = JSON.parse(localStorage.getItem('isRTL'));
       if (isRTL) {
@@ -60,6 +62,8 @@
         userLinkRTL.setAttribute('disabled', true);
       }
     </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </head>
 
 
@@ -90,7 +94,7 @@
 
               <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
 
-            </div><a class="navbar-brand" href="#">
+            </div><a class="navbar-brand" href="<?php echo base_url(); ?>patients/dashboard">
               <div class="d-flex align-items-center py-3"><span class="font-sans-serif">MedicalApp</span>
               </div>
             </a>
@@ -99,7 +103,7 @@
             <div class="navbar-vertical-content scrollbar">
               <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
                 <li class="nav-item">
-                  <!-- parent pages--><a class="nav-link" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard">
+                  <!-- parent pages--><a class="nav-link" href="<?php echo base_url(); ?>patients/dashboard" role="button" aria-controls="dashboard">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Tableau de bord</span>
                     </div>
                   </a>

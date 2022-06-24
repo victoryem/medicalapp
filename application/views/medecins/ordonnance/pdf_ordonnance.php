@@ -57,6 +57,7 @@
     <!-- ===============================================-->
     <main class="main" id="top">
     <div class="content">
+      
 
     <div class="row g-3 mb-3">
             <div class="col-xl-12">
@@ -68,20 +69,19 @@
                 <div class="card-header z-index-1">
                   <h5 class="text-primary">Voir l'ordonnande ! </h5>
                   <h6 class="text-600"></h6>
-                </div>
-                <div class="card-body z-index-1">
-                  <div class="row g-2 h-100 align-items-end">
-
+                  <div class="fs--2 fw-semi-bold">
+                    <button class="btn btn-primary print_invoice" type="button">Imprimer</button>
+                    <button class="btn btn-primary btnExport" type="button"> Exporter PDF</button>
                   </div>
                 </div>
               </div>
             </div>
         </div>
       <hr>
-      <div class="row g-3 mb-3">
-            <div class="col-xl-12">
-              <div class="card h-100">
-              <div class="container shad  poppins">
+      
+    <div class="col-xl-12">
+      <div class="card h-100">
+      <div class="container shad  poppins">
         <div class="row align-items-start mt-5">
           <div class="col">
             <img src="<?php echo base_url(); ?>assets/img/ordonnance/logo.png" class="log">
@@ -102,8 +102,7 @@
         <center > 
         <div class="mt-5 fw-bold text-decoration-underline text-uppercase "> ORDONNANCE MEDICALE </div>
         <div class="mt-5 fw-bold text-primary text-capitalize ">Patient: <?php echo $patient->nom ?> <?php echo $patient->prenom ?> </div>
-    </center>
-    <div id="show_alert"></div>
+        </center>
     <div>
     <table class="table mt-5" id="show_item">
         <thead>
@@ -126,7 +125,7 @@
             <td  width="30%"><h6 ><?php echo $medicament->commentaire  ?></h6></td>
           </tr>
           <?php endforeach; ?>
-          </tbody>
+        </tbody>
       </table>
       
     </div>
@@ -137,9 +136,9 @@
       </div>
       <div class="mt-5 tetx fw-bold mb-2">NB: Merci de ramener l'ordonance pour le prochain rendez-vous.</div>
     </div>
-              </div>
-            </div>
-      </div>
+    </div>
+    </div>
+</div>
      
     <footer class="footer">
             <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">

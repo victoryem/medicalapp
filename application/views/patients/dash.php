@@ -56,13 +56,13 @@
                     <?php foreach ($ordonnances as $ordonnance): ?>
                   <div class="d-flex mb-3 hover-actions-trigger align-items-center">
                     <div class="file-thumbnail">
-                      <img class="border h-100 w-100 fit-cover rounded-2" src="<?php echo base_url(); ?>assets/img/products/3-thumb.png" alt="" />
+                      <img class="border h-100 w-100 fit-cover rounded-2" src="<?php echo base_url(); ?>assets/img/icons/zip.png" alt="" />
                     </div>
                     <div class="ms-3 flex-shrink-1 flex-grow-1">
-                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="#!">iphone.jpg</a></h6>
-                      <div class="fs--1"><span class="fw-semi-bold">Antony</span><span class="fw-medium text-600 ms-2">Yesterday at 1:30 PM</span></div>
-                      <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="<?php echo base_url(); ?>assets/img/icons/cloud-download.svg" download="download"><img src="<?php echo base_url(); ?>assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
-                        <button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img src="<?php echo base_url(); ?>assets/img/icons/edit-alt.svg" alt="" width="15" /></button>
+                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="<?php echo base_url(); ?>patients/dashboard/view_ordonnance/<?php echo $ordonnance->id; ?>">ordonnance #<?php echo $ordonnance->id; ?></a></h6>
+                      <div class="fs--1">Dr<span class="fw-semi-bold"><?php echo $ordonnance->nom; ?> <?php echo $ordonnance->prenom; ?></span><span class="fw-medium text-600 ms-2"><?php echo $ordonnance->date; ?></span></div>
+                      <div class="hover-actions end-0 top-50 translate-middle-y">
+                      <a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Voir" href="<?php echo base_url(); ?>patients/dashboard/view_ordonnance/<?php echo $ordonnance->id; ?>"><img src="<?php echo base_url(); ?>assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
                       </div>
                     </div>
                   </div>

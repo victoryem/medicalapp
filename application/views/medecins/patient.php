@@ -56,7 +56,6 @@
                     </div>
                     <?php endforeach ?>
                 </div>
-                <div class="card-footer bg-light p-0 border-top"><a class="btn btn-link d-block w-100" href="app/events/event-list.html">Toute les consultations<span class="fas fa-chevron-right ms-1 fs--2"></span></a></div>
               </div>
             </div>
           <div class="row g-3 mb-3">
@@ -76,7 +75,7 @@
                       <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="<?php echo base_url(); ?>medecins/ordonnances/view_ordonnance/<?php echo $ordonnance->id; ?>">ordonnance #<?php echo $ordonnance->id; ?></a></h6>
                       <div class="fs--1"><span class="fw-semi-bold"></span><span class="fw-medium text-600 ms-2"><?php echo $ordonnance->date; ?></span></div>
                       <div class="hover-actions end-0 top-50 translate-middle-y">
-                        <a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="<?php echo base_url(); ?>medecins/ordonnances/get_ordonnance_pfd/<?php echo $ordonnance->id; ?>"><img src="<?php echo base_url(); ?>assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
+                        <a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Voir" href="<?php echo base_url(); ?>medecins/ordonnances/view_ordonnance/<?php echo $ordonnance->id; ?>"><img src="<?php echo base_url(); ?>assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
                       </div>
                     </div>
                   </div>

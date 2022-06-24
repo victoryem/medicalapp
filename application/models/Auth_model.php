@@ -43,7 +43,9 @@ class Auth_model extends CI_Model {
     if($query->num_rows()>0){
       foreach($query->result() as $row){
         if($row->is_email_verified == 'yes'){
-          $store_password = $row->password;
+          if ($row->archive == 'no') {
+            # code...
+            $store_password = $row->password;
           if(password_verify($password, $store_password)){
             $this->session->set_userdata('id', $row->id);
             //$role = $row->role;
@@ -64,6 +66,12 @@ class Auth_model extends CI_Model {
           else {
             return 'Mauvais mot de passe';
           }
+          }
+          else {
+            # code...
+            return "Votre compte a été désactivé.";
+          }
+          
         }
         else {
           return "Merci de verifier à votre email.";

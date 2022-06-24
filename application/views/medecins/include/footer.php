@@ -21,6 +21,10 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
+    <script src="<?php echo base_url() ?>assets/js/printThis.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/pdfmake.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/html2canvas.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/admin.js"></script>
     <script src="<?php echo base_url(); ?>vendors/popper/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>vendors/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>vendors/anchorjs/anchor.min.js"></script>
